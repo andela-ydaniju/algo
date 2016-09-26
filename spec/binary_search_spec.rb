@@ -1,4 +1,5 @@
 require 'spec_helper'
+require File.join(Dir.pwd, 'binary_search', 'bs.rb')
 
 RSpec.describe 'search' do
   it '' do
