@@ -1,9 +1,9 @@
-def merge(arr)
+def mergesort(arr)
   return arr if arr.size <= 1
 
   mid = arr.count / 2
-  part1 = merge arr.slice(0, mid)
-  part2 = merge arr.slice(mid, arr.count - mid)
+  part1 = mergesort arr[0...mid]
+  part2 = mergesort arr[mid..-1]
 
   placeholder = []
 
@@ -14,7 +14,6 @@ def merge(arr)
     a = part1[offset1]
     b = part2[offset2]
 
-    # Take the smallest of the two, and push it on our array
     if a <= b
       placeholder << a
       offset1 += 1
@@ -24,7 +23,6 @@ def merge(arr)
     end
   end
 
-  # There is at least one element left in either part_a or part_b (not both)
   while offset1 < part1.count
     placeholder << part1[offset1]
     offset1 += 1
